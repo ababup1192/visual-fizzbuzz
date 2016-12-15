@@ -1,0 +1,75 @@
+@import url(~sanitize.css/sanitize.css);
+#content {
+    padding: 20px;
+}
+
+label {
+    order: 1;
+    width: 10em;
+    padding-right: 0.5em;
+}
+
+input {
+    width: 55px;
+    order: 2;
+    flex: 1 1 auto;
+    background-color: rgba(147, 128, 108, 0.1);
+    color: #666666;
+    font: inherit;
+    font-weight: normal;
+}
+
+.fizzbuzzInputs {
+    display: flex;
+    margin-left: 40px;
+}
+
+#buzzContainer {
+    margin-left: 10px;
+}
+
+
+/* div要素は、縦並び */
+
+.fizzbuzzContainer {
+    margin: 30px 0;
+    text-align: center;
+    width: 860px;
+}
+
+
+/* 横並び */
+
+.list {
+    margin: auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* リストの要素に高さと幅を持たせて、ボーダーを設ける */
+
+.list li {
+    width: 80px;
+    height: 35px;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.numberElement {
+    background-color: rgba(147, 128, 108, 0.1);
+}
+
+.fizz {
+    background-color: #ee5e97;
+}
+
+.buzz {
+    background-color: #c5b66d;
+}
+
+.fizzbuzz {
+    background-color: #ffc753;
+}
+
