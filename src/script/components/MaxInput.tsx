@@ -1,36 +1,31 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import MaxAction from "../actionCreators/maxAction";
+
 interface IMaxInputProps {
     max: number;
-    handleMaxChange: (max: number) => void;
+    maxAction: MaxAction;
 }
 
-interface IMaxInputState {
-    max: number;
-}
-
-export default class MaxInput extends React.Component<IMaxInputProps, IMaxInputState> {
+export default class MaxInput extends React.Component<IMaxInputProps, {}> {
     constructor(props) {
         super(props);
 
         const max = this.props.max;
-        this.state = { max };
     }
 
     render() {
-        const handleMaxInput = this.props.handleMaxChange;
+        const {max, maxAction} = this.props;
 
         return <div>
             <label>1 -</label>
             <input
                 type="number"
-                value={this.state.max}
+                value={max}
                 onChange={(e) => {
                     const max = Number(e.target.value);
-                    const validatedMax = Math.abs(max) > 1000 ? 1000 : Math.abs(max);
-                    handleMaxInput(validatedMax);
-                    this.setState({ max: validatedMax });
+                    maxAction.changeMax(max);
                 } } />
         </div>;
     }

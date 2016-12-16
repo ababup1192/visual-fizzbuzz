@@ -1,51 +1,41 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+import { FizzbuzzAction } from "../actionCreators/fizzbuzzAction";
+
 interface IFizzBuzzInputProps {
     fizz: number;
     buzz: number;
-    handleFizzChange: (max: number) => void;
-    handleBuzzChange: (buzz: number) => void;
+    fizzbuzzAction: FizzbuzzAction;
 }
 
-interface IFizzBuzzInputState {
-    fizz: number;
-    buzz: number;
-}
-
-export default class MaxInput extends React.Component<IFizzBuzzInputProps, IFizzBuzzInputState> {
+export default class MaxInput extends React.Component<IFizzBuzzInputProps, {}> {
     constructor(props) {
         super(props);
-
-        const {fizz, buzz} = this.props;
-        this.state = { fizz, buzz };
     }
 
     render() {
-        const { handleFizzChange, handleBuzzChange } = this.props;
-        const state = this.state;
+        const { fizz, buzz, fizzbuzzAction } = this.props;
 
         return <div className="fizzbuzzInputs">
             <div id="fizzContainer">
                 <label>Fizz</label>
                 <input
                     type="number"
-                    value={this.state.fizz}
+                    value={fizz}
                     onChange={(e) => {
-                        const fizz = Number(e.target.value);
-                        handleFizzChange(fizz);
-                        this.setState({ ...state, fizz });
+                        const newFizz = Number(e.target.value);
+                        fizzbuzzAction.changeFizz(newFizz);
                     } } />
             </div>
             <div id="buzzContainer">
                 <label>Buzz</label>
                 <input
                     type="number"
-                    value={this.state.buzz}
+                    value={buzz}
                     onChange={(e) => {
-                        const buzz = Number(e.target.value);
-                        handleBuzzChange(buzz);
-                        this.setState({ ...state, buzz });
+                        const newBuzz = Number(e.target.value);
+                        fizzbuzzAction.changeBuzz(newBuzz);
                     } } />
             </div>
         </div>;
