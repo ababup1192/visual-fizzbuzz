@@ -10,6 +10,7 @@ import App from "./components/App";
 import Dispatcher from "./actionCreators/dispatcher";
 import MaxAction from "./actionCreators/maxAction";
 import { FizzbuzzAction, IFizzbuzz } from "./actionCreators/fizzbuzzAction";
+import { FizzBuzz } from "./models/fizzbuzz";
 
 const initialMax = 100;
 const initialFizz = 3;
@@ -23,14 +24,7 @@ const fizzbuzzProperty = fizzbuzzAction.createProperty();
 
 Bacon.onValues(maxProperty, fizzbuzzProperty, (max: number, fizzBuzz: IFizzbuzz) => {
     const { fizz, buzz } = fizzBuzz;
-    const fizzbuzz = fizz * buzz;
-    const fizzbuzzList = Range(1, max + 1).map((n) =>
-        n % fizzbuzz === 0 ? "fizzbuzz" :
-        n % fizz === 0 ? "fizz" :
-        n % buzz === 0 ? "buzz" :
-        n.toString()
-    ).toList();
-
+    const fizzbuzzList = FizzBuzz.createFizzbuzzList(max, fizz, buzz);
     const props = { fizz, buzz, max, fizzbuzzList, maxAction, fizzbuzzAction };
 
     ReactDOM.render(<App {...props} />, document.getElementById("content"));

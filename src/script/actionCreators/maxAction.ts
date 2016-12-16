@@ -1,5 +1,6 @@
 import * as Bacon from "baconjs";
 import Dispatcher from "./dispatcher";
+import { FizzBuzz } from "../models/fizzbuzz";
 
 const CHANGE_MAX = "CHANGE_MAX";
 
@@ -23,7 +24,6 @@ export default class MaxAction {
     }
 
     private _changeMax(_, newMax: number): number {
-        const validatedMax = Math.abs(newMax) > 1000 ? 1000 : Math.abs(newMax);
-        return validatedMax;
+        return FizzBuzz.validateMax(newMax);
     }
 }
