@@ -4,8 +4,8 @@ import * as ReactDOM from "react-dom";
 interface IFizzBuzzInputProps {
     fizz: number;
     buzz: number;
-    handleFizzInput: (max: number) => void;
-    handleBuzzInput: (buzz: number) => void;
+    handleFizzChange: (max: number) => void;
+    handleBuzzChange: (buzz: number) => void;
 }
 
 interface IFizzBuzzInputState {
@@ -22,7 +22,7 @@ export default class MaxInput extends React.Component<IFizzBuzzInputProps, IFizz
     }
 
     render() {
-        const { handleFizzInput, handleBuzzInput } = this.props;
+        const { handleFizzChange, handleBuzzChange } = this.props;
         const state = this.state;
 
         return <div className="fizzbuzzInputs">
@@ -33,7 +33,7 @@ export default class MaxInput extends React.Component<IFizzBuzzInputProps, IFizz
                     value={this.state.fizz}
                     onChange={(e) => {
                         const fizz = Number(e.target.value);
-                        handleFizzInput(fizz);
+                        handleFizzChange(fizz);
                         this.setState({ ...state, fizz });
                     } } />
             </div>
@@ -44,7 +44,7 @@ export default class MaxInput extends React.Component<IFizzBuzzInputProps, IFizz
                     value={this.state.buzz}
                     onChange={(e) => {
                         const buzz = Number(e.target.value);
-                        handleBuzzInput(buzz);
+                        handleBuzzChange(buzz);
                         this.setState({ ...state, buzz });
                     } } />
             </div>

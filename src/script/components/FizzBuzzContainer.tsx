@@ -20,19 +20,17 @@ export default class FizzBuzzContainer extends React.Component<IFizzBuzzContaine
 
         return this.props.list.map((n) =>
             n % fizzbuzz === 0 ? "fizzbuzz" :
-                n % fizz === 0 ? "fizz" :
-                    n % buzz === 0 ? "buzz" :
-                        n.toString()
+            n % fizz === 0 ? "fizz" :
+            n % buzz === 0 ? "buzz" :
+            n.toString()
         ).toList();
     }
 
     render() {
-        return <div className="listContainer">
-            <ul className="list">
-                {this.fizzBuzzList().map((c, i) =>
+        return <ul className="fizzBuzzList">
+            {this.fizzBuzzList().map((c, i) =>
                 <FizzBuzzElement key={i} content={c} />
-                )}
-            </ul>
-        </div>;
+            )}
+        </ul>;
     }
 }

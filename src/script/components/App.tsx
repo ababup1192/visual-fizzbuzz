@@ -27,15 +27,15 @@ export default class App extends React.Component<IAppProps, IAppState> {
         this.state = { list, fizz, buzz };
     }
 
-    private handleMaxInput(max: number) {
+    private handleMaxChange(max: number) {
         this.setState({ ...this.state, ...{ list: Range(1, max + 1).toList() } });
     }
 
-    private handlFizzInput(fizz: number) {
+    private handlFizzChange(fizz: number) {
         this.setState({ ...this.state, fizz });
     }
 
-    private handlBuzzInput(buzz: number) {
+    private handlBuzzChange(buzz: number) {
         this.setState({ ...this.state, buzz });
     }
 
@@ -46,17 +46,15 @@ export default class App extends React.Component<IAppProps, IAppState> {
             <div className="fizzbuzzInputs">
                 <MaxInput
                     max={max}
-                    handleMaxInput={(max) => this.handleMaxInput(max)} />
+                    handleMaxInput={(max) => this.handleMaxChange(max)} />
                 <FizzBuzzInput
                     fizz={fizz}
                     buzz={buzz}
-                    handleFizzInput={(fizz) => this.handlFizzInput(fizz)}
-                    handleBuzzInput={(buzz) => this.handlBuzzInput(buzz)}
+                    handleFizzInput={(fizz) => this.handlFizzChange(fizz)}
+                    handleBuzzInput={(buzz) => this.handlBuzzChange(buzz)}
                     />
             </div>
-            <div className="fizzbuzzContainer">
-                <FizzBuzzContainer {...this.state} />
-            </div>
+            <FizzBuzzContainer {...this.state} />
         </div>;
     }
 }

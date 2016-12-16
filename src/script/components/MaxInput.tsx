@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 
 interface IMaxInputProps {
     max: number;
-    handleMaxInput: (max: number) => void;
+    handleMaxChange: (max: number) => void;
 }
 
 interface IMaxInputState {
@@ -19,7 +19,7 @@ export default class MaxInput extends React.Component<IMaxInputProps, IMaxInputS
     }
 
     render() {
-        const handleMaxInput = this.props.handleMaxInput;
+        const handleMaxInput = this.props.handleMaxChange;
 
         return <div>
             <label>1 -</label>
