@@ -19,7 +19,7 @@ export default class MaxInput extends React.Component<IMaxInputProps, IMaxInputS
     }
 
     render() {
-        const handleMaxInput = this.props.handleMaxChange;
+        const handleMaxChange = this.props.handleMaxChange;
 
         return <div>
             <label>1 -</label>
@@ -29,7 +29,7 @@ export default class MaxInput extends React.Component<IMaxInputProps, IMaxInputS
                 onChange={(e) => {
                     const max = Number(e.target.value);
                     const validatedMax = Math.abs(max) > 1000 ? 1000 : Math.abs(max);
-                    handleMaxInput(validatedMax);
+                    handleMaxChange(validatedMax);
                     this.setState({ max: validatedMax });
                 } } />
         </div>;

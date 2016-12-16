@@ -46,12 +46,12 @@ export default class App extends React.Component<IAppProps, IAppState> {
             <div className="fizzbuzzInputs">
                 <MaxInput
                     max={max}
-                    handleMaxInput={(max) => this.handleMaxChange(max)} />
+                    handleMaxChange={(max) => this.handleMaxChange(max)} />
                 <FizzBuzzInput
                     fizz={fizz}
                     buzz={buzz}
-                    handleFizzInput={(fizz) => this.handlFizzChange(fizz)}
-                    handleBuzzInput={(buzz) => this.handlBuzzChange(buzz)}
+                    handleFizzChange={(fizz) => this.handlFizzChange(fizz)}
+                    handleBuzzChange={(buzz) => this.handlBuzzChange(buzz)}
                     />
             </div>
             <FizzBuzzContainer {...this.state} />
