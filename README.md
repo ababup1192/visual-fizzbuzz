@@ -1,6 +1,8 @@
-# Typescript Template
+# Visual FizzBuzz
 
-[![CircleCI](https://circleci.com/gh/ababup1192/react-template.svg?style=svg)](https://circleci.com/gh/ababup1192/react-template)
+# Demote
+
+![](https://github.com/ababup1192/visual-fizzbuzz-article/blob/master/demo.gif?raw=true)
 
 # Preparation
 
