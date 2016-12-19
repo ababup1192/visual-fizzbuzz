@@ -1,6 +1,6 @@
 # Visual FizzBuzz
 
-# Demote
+# Demo
 
 ![](https://github.com/ababup1192/visual-fizzbuzz-article/blob/master/demo.gif?raw=true)
 
