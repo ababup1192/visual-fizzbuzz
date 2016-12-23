@@ -2,10 +2,10 @@ import * as Bacon from "baconjs";
 import { Map } from "immutable";
 
 export default class Dispatcher {
-    private hundlers: Map<string, Bacon.Bus<any, any>>;
+    private handlers: Map<string, Bacon.Bus<any, any>>;
 
     constructor() {
-        this.hundlers = Map<string, Bacon.Bus<any, any>>();
+        this.handlers = Map<string, Bacon.Bus<any, any>>();
     }
     public stream(name: string): Bacon.Bus<any, any> {
         return this.bus(name);
@@ -17,11 +17,11 @@ export default class Dispatcher {
         this.bus(name).plug(value);
     }
     private bus(name: string): Bacon.Bus<any, any> {
-        if (this.hundlers.has(name)) {
-            return this.hundlers.get(name);
+        if (this.handlers.has(name)) {
+            return this.handlers.get(name);
         } else {
             const newBus = new Bacon.Bus();
-            this.hundlers = this.hundlers.set(name, newBus);
+            this.handlers = this.handlers.set(name, newBus);
             return newBus;
         }
     }

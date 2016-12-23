@@ -11,7 +11,7 @@ interface IAppProps {
     max: number;
     fizz: number;
     buzz: number;
-    fizzbuzzList: List<number>;
+    fizzbuzzList: List<string>;
     maxAction: MaxAction;
     fizzbuzzAction: FizzbuzzAction;
 }
