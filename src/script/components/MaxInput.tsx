@@ -11,8 +11,6 @@ interface IMaxInputProps {
 export default class MaxInput extends React.Component<IMaxInputProps, {}> {
     constructor(props) {
         super(props);
-
-        const max = this.props.max;
     }
 
     render() {
